@@ -40,9 +40,7 @@ sub quick_sort {
 	last if($i >= $j);
 	
 	## exchange
-	my $tmp = ${$this->{values}}[$i];
-	${$this->{values}}[$i] = ${$this->{values}}[$j];
-	${$this->{values}}[$j] = $tmp;
+	$this->swap($i, $j);
 	
 	$i++;
 	$j--;
@@ -52,5 +50,14 @@ sub quick_sort {
     $this->quick_sort($j+1, $right) if($j+1 < $right);
 }
 
+
+sub swap {
+    my $this = shift;
+    my ($i, $j) = @_;
+    
+    my $tmp = ${$this->{values}}[$i];
+    ${$this->{values}}[$i] = ${$this->{values}}[$j];
+    ${$this->{values}}[$j] = $tmp;
+}
 
 1;

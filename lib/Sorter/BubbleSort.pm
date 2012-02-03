@@ -10,9 +10,7 @@ sub sort {
     for my $i ( 0 .. $#{$this->{values}}-1 ) {
 	for my $j ( 0 .. $#{$this->{values}}-$i-1 ) {
 	    if(${$this->{values}}[$j] > ${$this->{values}}[$j+1]) {
-		my $tmp = ${$this->{values}}[$j];
-		${$this->{values}}[$j] = ${$this->{values}}[$j+1];
-		${$this->{values}}[$j+1] = $tmp;
+		$this->swap($i, $j);
 	    }
 	}
     }
