@@ -16,6 +16,7 @@ sub get_values {
 }
 
 
+<<<<<<< HEAD
 sub sort {
     my $this = shift;
     
@@ -23,4 +24,43 @@ sub sort {
     $this->{values} = [@sort_values];
 }
 
+=======
+
+sub sort {
+    my $this = shift;
+    
+    $this->quick_sort(0, $#{$this->{values}});
+}
+
+sub quick_sort {
+    my $this = shift;
+    my ($left, $right) = @_;
+    
+    #my $pivot = ${$this->{values}}[$left];
+    my $pivot = ${$this->{values}}[int(($left+$right)/2)];
+    
+    my $i = $left;
+    my $j = $right;
+    
+    while(1) {
+	## check array_item
+	while(${$this->{values}}[$i] < $pivot) {$i++;}
+	while(${$this->{values}}[$j] > $pivot) {$j--;}
+	last if($i >= $j);
+	
+	## exchange
+	my $tmp = ${$this->{values}}[$i];
+	${$this->{values}}[$i] = ${$this->{values}}[$j];
+	${$this->{values}}[$j] = $tmp;
+	
+	$i++;
+	$j--;
+    }
+    
+    $this->quick_sort($left, $i-1) if($left < $i-1);
+    $this->quick_sort($j+1, $right) if($j+1 < $right);
+}
+
+
+>>>>>>> mywork
 1;
