@@ -16,16 +16,6 @@ sub get_values {
 }
 
 
-<<<<<<< HEAD
-sub sort {
-    my $this = shift;
-    
-    my @sort_values = sort {$a <=> $b} @{$this->{values}};
-    $this->{values} = [@sort_values];
-}
-
-=======
-
 sub sort {
     my $this = shift;
     
@@ -60,9 +50,6 @@ sub quick_sort {
 }
 
 
-<<<<<<< HEAD
->>>>>>> mywork
-=======
 sub swap {
     my $this = shift;
     my ($i, $j) = @_;
@@ -72,5 +59,4 @@ sub swap {
     ${$this->{values}}[$j] = $tmp;
 }
 
->>>>>>> subwork
 1;
