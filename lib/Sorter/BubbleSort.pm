@@ -1,7 +1,10 @@
 ## Bubble sort
 package Sorter::BubbleSort;
 
-use base Sorter;
+use strict;
+use warnings;
+
+use base 'Sorter';
 
 
 sub sort {

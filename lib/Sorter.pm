@@ -1,7 +1,10 @@
 # implement this
 package Sorter;
 
-use base Class::Accessor;
+use strict;
+use warnings;
+
+use base qw(Class::Accessor);
 __PACKAGE__->follow_best_practice;
 __PACKAGE__->mk_accessors(qw/values/);
 
@@ -12,6 +15,7 @@ sub set_values {
 
 sub get_values {
     my $this = shift;
+    return if(!defined $this->{values});
     return @{$this->{values}};
 }
 
@@ -25,6 +29,8 @@ sub sort {
 sub quick_sort {
     my $this = shift;
     my ($left, $right) = @_;
+    
+    return if ( $left > $right );
     
     #my $pivot = ${$this->{values}}[$left];
     my $pivot = ${$this->{values}}[int(($left+$right)/2)];

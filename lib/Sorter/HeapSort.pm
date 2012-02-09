@@ -1,11 +1,16 @@
 ## Heap sort
 package Sorter::HeapSort;
 
-use base Sorter;
+use strict;
+use warnings;
+
+use base 'Sorter';
 
 
 sub sort {
     my $this = shift;
+    
+    return if ( !defined $this->{values} );
     
     my $count = @{$this->{values}};
     for (my $i=int($count/2)-1; $i>=0; $i--) {
